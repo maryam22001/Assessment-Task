@@ -66,7 +66,8 @@ class AnimatedActor:
         self.frame_timer += dt
         if self.frame_timer >= self.animation_speed:
             self.frame_timer = 0.0
-            self.frame_index = (self.frame_index + 1) % len(frames)
+            self.frame_index += 1
+        self.frame_index %= len(frames)
         self.actor.image = frames[self.frame_index]
         self.actor.flip_x = not self.facing_right
 
