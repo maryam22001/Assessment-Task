@@ -68,3 +68,50 @@ Touching an enemy or falling off the level costs a life (there is a brief invuln
 - `images/` — sprite frames (hero, two enemy types, coin, flag, button)
 - `sounds/` — short sound effects (jump, coin, hit, win, click)
 - `music/` — looping background music bed
+---------------------------------------------------------------------------------------------------------
+
+
+# Skyline Dash 3D (Roblox)
+
+A simple Roblox platformer, in the same spirit as the "Skyline Dash" Pygame Zero project: a main menu, two kinds of patrolling enemies, coins, a win goal, lives, and sound — rebuilt for Roblox using Luau.
+
+## Files
+
+| File | Where it goes |
+|---|---|
+| `GameServer.lua` | a **Script**, goes in `ServerScriptService` |
+| `GameClient.lua` | a **LocalScript**, goes in `StarterPlayerScripts` |
+| `README.md` | this file |
+
+Both scripts build everything else in code when the game starts — the level, platforms, coins, enemies, goal, menu, and HUD are all created automatically. You do not need to build anything by hand in the Workspace.
+
+## How to set it up
+
+1. Open Roblox Studio and create a new Baseplate place (or open an existing one — the scripts build their own ground/platforms, so it's fine either way).
+2. In the Explorer window, find **ServerScriptService**.
+   - Right-click it → Insert Object → **Script**.
+   - Delete the default empty code inside, and paste in the full contents of `GameServer.lua`.
+   - Rename the script to `GameServer` (optional, just for clarity).
+3. In the Explorer window, find **StarterPlayer → StarterPlayerScripts**.
+   - Right-click it → Insert Object → **LocalScript**.
+   - Delete the default empty code inside, and paste in the full contents of `GameClient.lua`.
+   - Rename it to `GameClient` (optional).
+4. Click **Play** (or F5) to test in Studio.
+
+## How to play
+
+- **WASD** / arrow keys to move, **Space** to jump (Roblox's default character controls).
+- Click **Start Game** on the menu to unfreeze your character and begin. Movement is locked until you press Start, same idea as the Pygame Zero version's main menu.
+- **Sound: On/Off** toggles background music and sound effects.
+- **Exit** disconnects you from the game session.
+- Reach the green goal marker at the far end of the level to win.
+- Two enemy types patrol fixed areas and must be avoided or jumped past:
+  - a **red "Walker"** that paces back and forth along a platform
+  - a **purple "Flyer"** that hovers up and down in a fixed vertical range
+
+  Touching either costs a life (with a brief invulnerability window afterwards so hits don't stack instantly). Falling off the level also costs a life. 0 lives = Game Over; reaching the goal = Win. Either way you're returned to the start to try again.
+- Small yellow spinning coins add to your Score (shown top-left, along with your Lives).
+
+
+
+
